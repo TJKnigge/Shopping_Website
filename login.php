@@ -33,11 +33,7 @@
                                 <strong>Password</strong>
                                 <span class="right"><a href="#">Forgot your password?</a></span>
                                 <input id="signinPassword" type="password" maxlength="25" class="form-control">
-                            </div>
-                            <div class="form-inline">
-                                <input type="radio" name="radio" id="customer"> Customer
-                                <input type="radio" name="radio" id="seller"> Seller
-                            </div>    
+                            </div>  
                             <div class="form-group" style="padding-top: 12px;">
                                 <button id="signinSubmit" type="submit" class="btn btn-success btn-block">Sign in</button>
                             </div>
