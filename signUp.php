@@ -1,3 +1,8 @@
+<?php
+//session_start();
+
+
+?>
 <html>
     <head>
         <title> Simple_Shopping_cart</title>
@@ -46,41 +51,39 @@
                             </div>
                             <div class="form-group">
                                 <strong>Name</strong>
-                                <input id="name" type="myname" maxlength="50" class="form-control">
+                                <input id="name" name="name" type="myname" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
-                                <strong>Sirname</strong>
-                                <input id="sirname" type="sname" maxlength="25" class="form-control">
+                                <strong>Surname</strong>
+                                <input id="surname" name="surname" type="sname" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>Street Name</strong>
-                                <input id="street" type="strname" maxlength="50" class="form-control">
+                                <input id="streetname" name="streetname" type="strname" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>House Number</strong>
-                                <input id="housenbr" type="hnumber" maxlength="25" class="form-control">
+                                <input id="housenumber" name="housenumber" type="hnumber" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>Zipcode</strong>
-                                <input id="zipcode" type="zip" maxlength="50" class="form-control">
+                                <input id="zipcode" name="zipcode" type="zip" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>City</strong>
-                                <input id="city" type="cty" maxlength="25" class="form-control">
+                                <input id="city" name="city" type="cty" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>Email Adrress</strong>
-                                <input id="signinEmail" type="email" maxlength="50" class="form-control">
+                                <input id="emailadress" name="email" type="email" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
-                                <input id="signinPassword" type="password" maxlength="25" class="form-control">
+                                <input id="password" name="password"t ype="password" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group" style="padding-top: 12px;">
-                                <button id="submit" type="signup" class="btn btn-success btn-block">Sign up</button>
+                                <button id="submit" type="submit" class="btn btn-success btn-block">Sign up</button>
                             </div>
-
-
 
                             <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                         </form>
@@ -112,3 +115,32 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
+
+<?php
+
+     if (isset($_REQUEST) && !empty($_REQUEST)){
+         
+         $name= $_REQUEST['name'];
+         $password= $_REQUEST['password'];
+         $surname= $_REQUEST['surname'];
+         $streetname= $_REQUEST['streetname'];
+         $housenumber= $_REQUEST['housenumber'];
+         $zipcode= $_REQUEST['zipcode'];
+         $city= $_REQUEST['cty'];
+         $emailadress= $_REQUEST['email'];
+         
+          
+         $sql= "INSERT INTO `cart_users` (`name`, `password`, `surname`, `streetname`, `housenumber`, `zipcode`, `city`, `emailadress`) VALUES ('$name', '$password', '$surname', '$streetname', '$housenumber', "
+                 . "'$zipcode', '$city', '$emailadress')";
+echo $sqli;                         
+         $result= mysqli_query($conn, $sql)
+                    or die("Failed to connect to DB" . mysqli_error());
+         
+         if($result){
+             
+             echo "Bedankt voor het invullen van uw gegevens " . $name;
+         }else{
+             echo "Sorry, probeer het nog eens";
+         }
+     }
+?>
