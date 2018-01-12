@@ -1,5 +1,5 @@
 <?php
-//session_start();
+$connect = mysqli_connect('localhost', 'root', '', 'cart');
 
 
 ?>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
-                                <input id="password" name="password"t ype="password" maxlength="50" class="form-control">
+                                <input id="password" name="password" type="password" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group" style="padding-top: 12px;">
                                 <button id="submit" type="submit" class="btn btn-success btn-block">Sign up</button>
@@ -126,14 +126,15 @@
          $streetname= $_REQUEST['streetname'];
          $housenumber= $_REQUEST['housenumber'];
          $zipcode= $_REQUEST['zipcode'];
-         $city= $_REQUEST['cty'];
+         $city= $_REQUEST['city'];
          $emailadress= $_REQUEST['email'];
          
           
-         $sql= "INSERT INTO `cart_users` (`name`, `password`, `surname`, `streetname`, `housenumber`, `zipcode`, `city`, `emailadress`) VALUES ('$name', '$password', '$surname', '$streetname', '$housenumber', "
+         $mysqli= "INSERT INTO `cart_users` (`name`, `password`, `surname`, `streetname`, `housenumber`, `zipcode`, `city`, `emailadress`) VALUES ('$name', '$password', '$surname', '$streetname', '$housenumber', "
                  . "'$zipcode', '$city', '$emailadress')";
-echo $sqli;                         
-         $result= mysqli_query($conn, $sql)
+
+         
+         $result= mysqli_query($connect, $mysqli)
                     or die("Failed to connect to DB" . mysqli_error());
          
          if($result){
