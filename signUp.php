@@ -1,6 +1,10 @@
 <?php
-$connect = mysqli_connect('localhost', 'root', '', 'cart');
-
+//$connect = mysqli_connect('localhost', 'root', '', 'cart');
+//if (!$connect){
+//    die("DB failed to connect");
+//}
+require 'General.php';
+$conn = connectionDB();
 
 ?>
 <html>
@@ -14,24 +18,10 @@ $connect = mysqli_connect('localhost', 'root', '', 'cart');
 
     </head>
     <body>
-        <div class="menu">
+         <div class="menu">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
+                    <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
@@ -51,35 +41,35 @@ $connect = mysqli_connect('localhost', 'root', '', 'cart');
                             </div>
                             <div class="form-group">
                                 <strong>Name</strong>
-                                <input id="name" name="name" type="myname" maxlength="50" class="form-control">
+                                <input id="mynme" name="name" type="myname" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>Surname</strong>
-                                <input id="surname" name="surname" type="sname" maxlength="50" class="form-control">
+                                <input id="surnme" name="surname" type="sname" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>Street Name</strong>
-                                <input id="streetname" name="streetname" type="strname" maxlength="50" class="form-control">
+                                <input id="strtnm" name="streetname" type="strname" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>House Number</strong>
-                                <input id="housenumber" name="housenumber" type="hnumber" maxlength="50" class="form-control">
+                                <input id="hnmbr" name="housenumber" type="hnumber" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>Zipcode</strong>
-                                <input id="zipcode" name="zipcode" type="zip" maxlength="50" class="form-control">
+                                <input id="zipc" name="zipcode" type="zip" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>City</strong>
-                                <input id="city" name="city" type="cty" maxlength="50" class="form-control">
+                                <input id="cty" name="city" type="cti" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>Email Adrress</strong>
-                                <input id="emailadress" name="email" type="email" maxlength="50" class="form-control">
+                                <input id="emailadress" name="email" type="e_mail" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
-                                <input id="password" name="password" type="password" maxlength="50" class="form-control">
+                                <input id="passwrd" name="password" type="password" maxlength="50" class="form-control" autocomplete="on">
                             </div>
                             <div class="form-group" style="padding-top: 12px;">
                                 <button id="submit" type="submit" class="btn btn-success btn-block">Sign up</button>
@@ -118,28 +108,28 @@ $connect = mysqli_connect('localhost', 'root', '', 'cart');
 
 <?php
 
-     if (isset($_REQUEST) && !empty($_REQUEST)){
+     if (isset($_POST) && !empty($_POST)){
          
-         $name= $_REQUEST['name'];
-         $password= $_REQUEST['password'];
-         $surname= $_REQUEST['surname'];
-         $streetname= $_REQUEST['streetname'];
-         $housenumber= $_REQUEST['housenumber'];
-         $zipcode= $_REQUEST['zipcode'];
-         $city= $_REQUEST['city'];
-         $emailadress= $_REQUEST['email'];
+         $name= $_POST['name'];
+         $password= $_POST['password'];
+         $surname= $_POST['surname'];
+         $streetname= $_POST['streetname'];
+         $housenumber= $_POST['housenumber'];
+         $zipcode= $_POST['zipcode'];
+         $city= $_POST['city'];
+         $emailadress= $_POST['email'];
          
           
-         $mysqli= "INSERT INTO `cart_users` (`name`, `password`, `surname`, `streetname`, `housenumber`, `zipcode`, `city`, `emailadress`) VALUES ('$name', '$password', '$surname', '$streetname', '$housenumber', "
+         $sql= "INSERT INTO `users` (`name`, `password`, `surname`, `streetname`, `housenumber`, `zipcode`, `city`, `emailadress`) VALUES ('$name', '$password', '$surname', '$streetname', '$housenumber', "
                  . "'$zipcode', '$city', '$emailadress')";
 
          
-         $result= mysqli_query($connect, $mysqli)
+         $result= mysqli_query($conn, $sql)
                     or die("Failed to connect to DB" . mysqli_error());
          
          if($result){
              
-             echo "Bedankt voor het invullen van uw gegevens " . $name;
+            echo "<script>alert( 'Bedankt voor het invullen van uw gegevens ') </script>";
          }else{
              echo "Sorry, probeer het nog eens";
          }

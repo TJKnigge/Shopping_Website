@@ -1,7 +1,15 @@
 <?php
+require 'General.php';
+$conn = connectionDB();
 session_start();
+//include 'login.php';
+//include 'signUp.php';
 $product_ids = array();
-//session_destroy();
+
+//if (!isset($_SESSION['name'], $_SESSION['password'])){
+//    
+//    echo "<script> window.location.href = 'login.php'</script>";
+//}
 
 if (filter_input(INPUT_POST, 'add_to_cart')) {
     if (isset($_SESSION['shopping_cart'])) {
@@ -63,20 +71,21 @@ function pre_r($array) {
     <head>
         <title> Simple_Shopping_cart</title>
         <link rel =" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel =" stylesheet" href="cart.css"/>
+        <link rel =" stylesheet" href="Footer.css"/>
     </head>
     <body>
         <div class="menu">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="index.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
+                    <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
-                        <!--<li><a href="login.php"><span class="glyphicon glyphicon-log-out"style="padding-top: 10px"></span> Logout</a></li>-->
 
                     </ul>
                 </div>
@@ -157,7 +166,7 @@ function pre_r($array) {
                         </tr>  
                         <tr>
                             <td colspan="5">
-                                        <a href="#" class="button">Checkout</a>
+                                <a href="payment.html" class="button">Checkout</a>
                             </td>
                         </tr>
                         <?php
@@ -166,6 +175,25 @@ function pre_r($array) {
                 </table>  
             </div>
         </div>
+        <div class="content">
+        </div>
+        <footer id="myFooter">
+            <div class="container">
+                <ul>
+                    <li><a href="index.php">PHP Developer Store</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                </ul>
+                <p class="footer-copyright">Â© 2018 Copyright is Reserved For PHP Developer Team </p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </body>
 </html>
-
