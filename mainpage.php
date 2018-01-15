@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bootstrap Example</title>
+        <title>PHP developer Store</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,7 +21,6 @@
             <a href="index.php" class="btn btn-primary" style="background-color:red ; font-family: Trebuchet MS ">View Our Products</a>
             <a href="signUp.php" class="btn btn-primary" style="background-color: #5fdf49 ; font-family: Trebuchet MS ">Register For New Account</a>
             <a href="login.php" class="btn btn-primary" style="background-color:blue ; font-family: Trebuchet MS ">Login To Your Account</a>
-            <a href="#" class="btn btn-primary" style="background-color:blue ; font-family: Trebuchet MS " onclick="location.href='login2.php'">Login To Seller Account</a>
         </div>
         <div class="content">
         </div>

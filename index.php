@@ -86,6 +86,7 @@ function pre_r($array) {
 
                         <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
                         <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Logout</a></li>
 
                     </ul>
                 </div>

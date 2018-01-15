@@ -1,9 +1,33 @@
 <?php
+session_start();
 require 'General.php';
 $conn = connectionDB();
 
-
+if (isset($_POST) & !empty($_POST)) {
+ 
+    $username= $_POST['name'] ; 
+    $password= $_POST['password'] ;
+    
+    $sql3 = "SELECT * FROM `users` WHERE name='$username' and password='$password'";
+    
+     $result = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
+    $count= mysqli_num_rows($result);
+    
+    if ($count == 1) {
+        $_SESSION['name'] = $username;
+        $_SESSION['password'] = $password;
+        
+        echo '<script type="text/javascript">alert(" Hi  ' .$username. '  Welcom back  ");</script>';
+        echo "<script>window.location.assign('index.php');</script>";
+    } else {
+        echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
+        echo "<script>window.location.assign('signUp.php');</script>";
+    
+    
+}
+}
 ?>
+<!DOCTYPE html>
 <html>
     <head>
         <link rel =" stylesheet" href="logincss.css"/>
@@ -14,12 +38,6 @@ $conn = connectionDB();
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
-                </div>
-                <div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -32,13 +50,13 @@ $conn = connectionDB();
                                 <h2>Sign in</h2>
                             </div>
                             <div class="form-group">
-                                <strong>Email Adrress</strong>
-                                <input id="signinEmail" type="email" maxlength="50" class="form-control">
+                                <strong>User Name</strong>
+                                <input id="signinEmail" type="name" name="name" maxlength="50" class="form-control">
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
                                 <span class="right"><a href="#">Forgot your password?</a></span>
-                                <input id="signinPassword" type="password" maxlength="25" class="form-control">
+                                <input id="signinPassword" type="password" name="password" maxlength="25" class="form-control">
                             </div>  
                             <div class="form-group" style="padding-top: 12px;">
                                 <button id="signinSubmit" type="submit" class="btn btn-success btn-block">Sign in</button>
@@ -46,14 +64,13 @@ $conn = connectionDB();
                             <div class="form-group divider">
                                 <hr class="left"><small>New to site?</small><hr class="right">
                             </div>
-                            <p class="form-group">Please sign Up</p>
-                            <!--<p class="form-group"><a href="#" class="btn btn-info btn-block">Create an account</a></p>-->
+                            <p class="form-group"> <a href="signUp.php">Please sign Up</a></p>
+                            
                             <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>
             </div>
-
         </div>
     </body>
 </html>
