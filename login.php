@@ -3,7 +3,7 @@ session_start();
 require 'General.php';
 $conn = connectionDB();
 
-if (isset($_POST) & !empty($_POST)) {
+if (isset($_POST) && !empty($_POST)) {
  
     $username= $_POST['name'] ; 
     $password= $_POST['password'] ;
@@ -16,6 +16,7 @@ if (isset($_POST) & !empty($_POST)) {
     if ($count == 1) {
         $_SESSION['name'] = $username;
         $_SESSION['password'] = $password;
+        $_SESSION['loggedin'] = true;
         
         echo '<script type="text/javascript">alert(" Hi  ' .$username. '  Welcom back  ");</script>';
         echo "<script>window.location.assign('index.php');</script>";
@@ -38,6 +39,7 @@ if (isset($_POST) & !empty($_POST)) {
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
+                    
                 </div>
             </div>
         </div>

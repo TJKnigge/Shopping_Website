@@ -2,14 +2,7 @@
 require 'General.php';
 $conn = connectionDB();
 session_start();
-//include 'login.php';
-//include 'signUp.php';
 $product_ids = array();
-
-//if (!isset($_SESSION['name'], $_SESSION['password'])){
-//    
-//    echo "<script> window.location.href = 'login.php'</script>";
-//}
 
 if (filter_input(INPUT_POST, 'add_to_cart')) {
     if (isset($_SESSION['shopping_cart'])) {
@@ -83,10 +76,8 @@ function pre_r($array) {
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
-                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Logout</a></li>
+                        <li style="padding-top: 8px"><?php echo "<a><span class='glyphicon glyphicon-user'; style='color:white; font-size: 15px; font-weight: bold'> " . $_SESSION['name'] . "</span></a>" ?> </li>
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Logout</a></li>
 
                     </ul>
                 </div>
@@ -112,67 +103,71 @@ function pre_r($array) {
                                     <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                                     <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
                                     <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info"
-                                           value="Add to Cart" />
-                                </div>
-                            </form>
-                        </div>
-                        <?php
+                                           value="Add to Cart" onclick="<?php
+                                           if ($_SESSION['loggedin'] != true) {
+                                               echo 'not logged in';
+                                           header("Location: login.php");}
+                                               ?>"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <?php
+                        }
                     }
                 }
-            }
-            if (isset($_SESSION['shopping_cart'])) {
-                if (count($_SESSION['shopping_cart']) > 0) {
-                    ?>
+                if (isset($_SESSION['shopping_cart'])) {
+                    if (count($_SESSION['shopping_cart']) > 0) {
+                        ?>
 
-                    <div style="clear:both"></div>  
-                    <br />  
-                    <div class="table-responsive">  
-                        <table class="table">  
-                            <tr><th colspan="5"><h3>Order Details</h3></th></tr>   
-                            <tr>  
-                                <th width="40%">Product Name</th>  
-                                <th width="10%">Quantity</th>  
-                                <th width="20%">Price</th>  
-                                <th width="15%">Total</th>  
-                                <th width= "5%">Action</th>  
-                            </tr>  
-                            <?php
+                        <div style="clear:both"></div>  
+                        <br />  
+                        <div class="table-responsive">  
+                            <table class="table">  
+                                <tr><th colspan="5"><h3>Order Details</h3></th></tr>   
+                                <tr>  
+                                    <th width="40%">Product Name</th>  
+                                    <th width="10%">Quantity</th>  
+                                    <th width="20%">Price</th>  
+                                    <th width="15%">Total</th>  
+                                    <th width= "5%">Action</th>  
+                                </tr>  
+                                <?php
+                            }
                         }
-                    }
-                    if (!empty($_SESSION['shopping_cart'])) {
+                        if (!empty($_SESSION['shopping_cart'])) {
 
-                        $total = 0;
+                            $total = 0;
 
-                        foreach ($_SESSION['shopping_cart'] as $key => $product) {
+                            foreach ($_SESSION['shopping_cart'] as $key => $product) {
+                                ?>  
+                                <tr>  
+                                    <td><?php echo $product['name']; ?></td>  
+                                    <td><?php echo $product['quantity']; ?></td>  
+                                    <td><?php echo $product['price']; ?></td>  
+                                    <td><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>  
+                                    <td>
+                                        <a href="index.php?action=delete&id=<?php echo $product['id']; ?>">
+                                            <div class="btn-danger">Remove</div>
+                                        </a>
+                                    </td>  
+                                </tr>  
+                                <?php
+                                $total = $total + ($product['quantity'] * $product['price']);
+                            }
                             ?>  
                             <tr>  
-                                <td><?php echo $product['name']; ?></td>  
-                                <td><?php echo $product['quantity']; ?></td>  
-                                <td><?php echo $product['price']; ?></td>  
-                                <td><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>  
-                                <td>
-                                    <a href="index.php?action=delete&id=<?php echo $product['id']; ?>">
-                                        <div class="btn-danger">Remove</div>
-                                    </a>
-                                </td>  
+                                <td colspan="3" align="right">Total</td>  
+                                <td align="right">$ <?php echo number_format($total, 2); ?></td>  
+                                <td></td>  
                             </tr>  
+                            <tr>
+                                <td colspan="5">
+                                    <a href="payment.html" class="button">Checkout</a>
+                                </td>
+                            </tr>
                             <?php
-                            $total = $total + ($product['quantity'] * $product['price']);
                         }
                         ?>  
-                        <tr>  
-                            <td colspan="3" align="right">Total</td>  
-                            <td align="right">$ <?php echo number_format($total, 2); ?></td>  
-                            <td></td>  
-                        </tr>  
-                        <tr>
-                            <td colspan="5">
-                                <a href="payment.html" class="button">Checkout</a>
-                            </td>
-                        </tr>
-                        <?php
-                    }
-                    ?>  
                 </table>  
             </div>
         </div>
@@ -181,7 +176,7 @@ function pre_r($array) {
         <footer id="myFooter">
             <div class="container">
                 <ul>
-                    <li><a href="index.php">PHP Developer Store</a></li>
+                    <li><a href="mainpage.php">PHP Developer Store</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
                     <li><a href="#">Terms of service</a></li>
