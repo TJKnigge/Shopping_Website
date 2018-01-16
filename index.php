@@ -205,7 +205,7 @@ function pre_r($array) {
                     <li><a href="mainpage.php">PHP Developer Store</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
-                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
                 <p class="footer-copyright">Â© 2018 Copyright is Reserved For PHP Developer Team </p>
             </div>

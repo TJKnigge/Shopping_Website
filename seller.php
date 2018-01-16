@@ -4,20 +4,17 @@ include 'General.php';
 $conn = connectionDB();
 
 
-if (isset($_SESSION['name']) &&
-        isset($_SESSION['image']) &&
-        isset($_SESSION['price'])) {
+if (isset($_POST['name']) &&
+        isset($_POST['image']) &&
+        isset($_POST['price'])) {
     $name = get_post($conn, 'name');
-    $image = get_post($conn, 'image');
+    $image =get_post($conn, 'image');
     $price = get_post($conn, 'price');
 
 
 
-
-    $query = "INSERT INTO products
-            (name,image,price)
-            VALUES ('$name','$image','$price')";
-    $result = $conn->query($query);
+    $query = "INSERT INTO `products` (`name`,`image`,`price`)VALUES ('$name','$image','$price')";
+    $result = mysqli_query($conn, $query);
 
     if (!$result)
         echo "INSERT failed: $query<br>" .
@@ -76,6 +73,7 @@ if (isset($_SESSION['name']) &&
                 <div class="form-group">        
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="button" class="btn btn-default" onclick = "location.href='index.php'">View products</button>
                     </div>
                 </div>
             </form>
@@ -89,7 +87,7 @@ if (isset($_SESSION['name']) &&
                     <li><a href="index.php">PHP Developer Store</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
-                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
                 <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
             </div>

@@ -7,7 +7,6 @@ session_start();
 if (isset($_POST) && !empty($_POST)) {
 
     $name = $_POST['name'];
-    $job = $_POST['Seller'];
     $password = $_POST['password'];
     $surname = $_POST['surname'];
     $streetname = $_POST['streetname'];
@@ -50,6 +49,8 @@ if (isset($_POST) && !empty($_POST)) {
         <link rel =" stylesheet" href="cart.css"/>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel =" stylesheet" href="Footer.css"/> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
     </head>
@@ -127,7 +128,7 @@ if (isset($_POST) && !empty($_POST)) {
                     <li><a href="index.php">PHP Developer Store</a></li>
                     <li><a href="#">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
-                    <li><a href="#">Terms of service</a></li>
+                    <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
                 <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
             </div>
@@ -137,7 +138,5 @@ if (isset($_POST) && !empty($_POST)) {
                 <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
             </div>
         </footer>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </body>
+       </body>
 </html>
