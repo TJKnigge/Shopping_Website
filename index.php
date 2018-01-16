@@ -58,6 +58,22 @@ function pre_r($array) {
     print-r($array);
     echo'</pre>';
 }
+
+//function check() {
+//    $query1 = "SELECT `active` FROM `users`";
+//    
+//    $conn = connectionDB();
+//    $result_online = mysqli_query($conn, $query1);
+//    
+//    $Array = mysqli_fetch_array($result_online);
+//    if ($Array['active'] != 1){
+//        
+//        echo "you need to login first";
+//        header('location : login.php'); 
+//    }
+//        
+//}
+//
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,8 +92,14 @@ function pre_r($array) {
                 </div>
                 <div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li style="padding-top: 8px"><?php echo "<a><span class='glyphicon glyphicon-user'; style='color:white; font-size: 15px; font-weight: bold'> " . $_SESSION['name'] . "</span></a>" ?> </li>
-                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Logout</a></li>
+                        <li style="padding-top: 8px"> <?php if (isset($_SESSION['name'])) { ?> <a><span class="glyphicon glyphicon-user" style="  color:white ; font-size: 15px; font-weight: bold  ">
+                                        <?PHP echo $_SESSION['name']; ?> </span></a> </li>
+                            <li><a href="seller.php"><span class="glyphicon glyphicon-barcode" style="padding-top: 10px"></span> Seller page</a></li>
+                        <?PHP } ?>    
+                        <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Logout</a></li> <?PHP } else {
+                            ?> <li><a href="login.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Login</a></li><?php
+                        }
+                        ?>
 
                     </ul>
                 </div>
@@ -99,75 +121,79 @@ function pre_r($array) {
                                     <img src="<?php echo $product['image']; ?>" class="img-responsive" />
                                     <h4 class="text-info"><?php echo $product['name']; ?></h4>
                                     <h4>$ <?php echo $product['price']; ?></h4>
-                                    <input type="text" name="quantity" class="form-control" value="1" />
+
                                     <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                                     <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
-                                    <input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-info"
-                                           value="Add to Cart" onclick="<?php
-                                           if ($_SESSION['loggedin'] != true) {
-                                               echo 'not logged in';
-                                           header("Location: login.php");}
-                                               ?>"/>
-                                    </div>
-                                </form>
-                            </div>
+                                    <?php
+                                    if (isset($_SESSION['name'])) {
+                                        ?>
+
+                                        <input type = "text" name = "quantity" class = "form-control" value = "1" />
+                                        <input type = "submit" name = "add_to_cart" style = "margin-top:5px;" class = "btn btn-info"
+                                               value = "Add to Cart" />
+                                               <?php
+                                           }
+                                           ?>
+                                </div>
+                            </form>
+                        </div>
+                        <?php
+                    }
+                }
+            }
+            if (isset($_SESSION['shopping_cart'])) {
+                if (count($_SESSION['shopping_cart']) > 0) {
+                    ?>
+
+                    <div style="clear:both"></div>  
+                    <br />  
+                    <div class="table-responsive">  
+                        <table class="table">  
+                            <tr><th colspan="5"><h3>Order Details</h3></th></tr>   
+                            <tr>  
+                                <th width="40%">Product Name</th>  
+                                <th width="10%">Quantity</th>  
+                                <th width="20%">Price</th>  
+                                <th width="15%">Total</th>  
+                                <th width= "5%">Action</th>  
+                            </tr>  
                             <?php
                         }
                     }
-                }
-                if (isset($_SESSION['shopping_cart'])) {
-                    if (count($_SESSION['shopping_cart']) > 0) {
-                        ?>
+                    if (!empty($_SESSION['shopping_cart'])) {
 
-                        <div style="clear:both"></div>  
-                        <br />  
-                        <div class="table-responsive">  
-                            <table class="table">  
-                                <tr><th colspan="5"><h3>Order Details</h3></th></tr>   
-                                <tr>  
-                                    <th width="40%">Product Name</th>  
-                                    <th width="10%">Quantity</th>  
-                                    <th width="20%">Price</th>  
-                                    <th width="15%">Total</th>  
-                                    <th width= "5%">Action</th>  
-                                </tr>  
-                                <?php
-                            }
-                        }
-                        if (!empty($_SESSION['shopping_cart'])) {
+                        $total = 0;
 
-                            $total = 0;
-
-                            foreach ($_SESSION['shopping_cart'] as $key => $product) {
-                                ?>  
-                                <tr>  
-                                    <td><?php echo $product['name']; ?></td>  
-                                    <td><?php echo $product['quantity']; ?></td>  
-                                    <td><?php echo $product['price']; ?></td>  
-                                    <td><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>  
-                                    <td>
-                                        <a href="index.php?action=delete&id=<?php echo $product['id']; ?>">
-                                            <div class="btn-danger">Remove</div>
-                                        </a>
-                                    </td>  
-                                </tr>  
-                                <?php
-                                $total = $total + ($product['quantity'] * $product['price']);
-                            }
+                        foreach ($_SESSION['shopping_cart'] as $key => $product) {
                             ?>  
                             <tr>  
-                                <td colspan="3" align="right">Total</td>  
-                                <td align="right">$ <?php echo number_format($total, 2); ?></td>  
-                                <td></td>  
+                                <td><?php echo $product['name']; ?></td>  
+                                <td><?php echo $product['quantity']; ?></td>  
+                                <td><?php echo $product['price']; ?></td>  
+                                <td><?php echo number_format($product['quantity'] * $product['price'], 2); ?></td>  
+                                <td>
+                                    <a href="index.php?action=delete&id=<?php echo $product['id']; ?>">
+                                        <div class="btn-danger">Remove</div>
+                                    </a>
+                                </td>  
                             </tr>  
-                            <tr>
-                                <td colspan="5">
-                                    <a href="payment.html" class="button">Checkout</a>
-                                </td>
-                            </tr>
                             <?php
+                            $total = $total + ($product['quantity'] * $product['price']);
                         }
                         ?>  
+                        <tr>  
+                            <td colspan="3" align="right">Total</td>  
+                            <td align="right">$ <?php echo number_format($total, 2); ?></td>  
+                            <td></td>  
+                        </tr>  
+                        <tr>
+                            <td colspan="5">
+                                <a href="payment.html" class="button">Checkout</a>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>  
                 </table>  
             </div>
         </div>

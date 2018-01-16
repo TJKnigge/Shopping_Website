@@ -11,7 +11,7 @@ if (isset($_SESSION['name']) &&
     $image = get_post($conn, 'image');
     $price = get_post($conn, 'price');
 
-  
+
 
 
     $query = "INSERT INTO products
@@ -27,11 +27,12 @@ if (isset($_SESSION['name']) &&
 <html>
     <head>
         <title> Simple_Shopping_cart</title>
-        <link rel =" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <link rel =" stylesheet" href="cart.css"/>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel =" stylesheet" href="cart.css"/>
+        <link rel =" stylesheet" href="footer.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
@@ -42,17 +43,17 @@ if (isset($_SESSION['name']) &&
                     <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
                 </div>
                 <div>
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Logout</a></li>
 
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="container" style=" padding-top: 100px">
-            <h2>Input new article</h2>
+        <div class="container" style=" padding-top: 100px ; background-color: lightgray;">
+            <center>
+             <h1 style="  font-family: Georgia ">Input new Item informations </h1>
+             
             <form class="form-horizontal" action="seller.php"  method="post">
                 <div class="form-group">
                     <label class="control-label col-sm-2" for="name">Discription:</label>
@@ -78,6 +79,25 @@ if (isset($_SESSION['name']) &&
                     </div>
                 </div>
             </form>
+             </center>
         </div>
+        <div class="content">
+        </div>
+        <footer id="myFooter">
+            <div class="container">
+                <ul>
+                    <li><a href="index.php">PHP Developer Store</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Our Products</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                </ul>
+                <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+            </div>
+        </footer>
     </body>
 </html>

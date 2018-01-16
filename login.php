@@ -4,42 +4,48 @@ require 'General.php';
 $conn = connectionDB();
 
 if (isset($_POST) && !empty($_POST)) {
- 
-    $username= $_POST['name'] ; 
-    $password= $_POST['password'] ;
-    
+
+    $username = $_POST['name'];
+    $password = $_POST['password'];
+
     $sql3 = "SELECT * FROM `users` WHERE name='$username' and password='$password'";
-    
-     $result = mysqli_query($conn,$sql3) or die(mysqli_error($conn));
-    $count= mysqli_num_rows($result);
-    
+
+    $result = mysqli_query($conn, $sql3) or die(mysqli_error($conn));
+    $count = mysqli_num_rows($result);
+
     if ($count == 1) {
         $_SESSION['name'] = $username;
         $_SESSION['password'] = $password;
         $_SESSION['loggedin'] = true;
-        
-        echo '<script type="text/javascript">alert(" Hi  ' .$username. '  Welcom back  ");</script>';
+//        $active = "UPDATE users SET active = 1  WHERE name='$username'";
+//        
+//        $Myresult = mysqli_query($conn, $active);
+
+        echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
         echo "<script>window.location.assign('index.php');</script>";
     } else {
         echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
         echo "<script>window.location.assign('signUp.php');</script>";
-    
-    
-}
+    }
 }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <link rel =" stylesheet" href="logincss.css"/>
-        <link rel =" stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel =" stylesheet" href="cart.css"/>
+        <link rel =" stylesheet" href="footer.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="menu">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="mainpage.php" class="navbar-brand" title="PHP Computer store Home " style="padding-top: 12px ;font-family: Georgia ">PHP Developers Store</a>
-                    
+
                 </div>
             </div>
         </div>
@@ -67,12 +73,24 @@ if (isset($_POST) && !empty($_POST)) {
                                 <hr class="left"><small>New to site?</small><hr class="right">
                             </div>
                             <p class="form-group"> <a href="signUp.php">Please sign Up</a></p>
-                            
+
                             <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="content">
+        </div>
+        <footer id="myFooter">
+            <div class="container" style=" padding-top:1px;">
+                <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+            </div>
+        </footer>
     </body>
 </html>
