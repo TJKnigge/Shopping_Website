@@ -112,7 +112,7 @@ if (isset($_POST) && !empty($_POST)) {
                                 <button id="submit" type="submit" class="btn btn-success btn-block">Sign up</button>
                             </div>
 
-                            <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <p class="form-group">By signing in you are agreeing to our <a href="termsofservice.html">Terms of Use</a> and our <a href="PHP Developer Store.htm">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>

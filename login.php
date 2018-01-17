@@ -22,7 +22,7 @@ if (isset($_POST) && !empty($_POST)) {
 //        $Myresult = mysqli_query($conn, $active);
 
         echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
-        echo "<script>window.location.assign('index.php');</script>";
+        echo "<script>window.location.assign('mainpage.php');</script>";
     } else {
         echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
         echo "<script>window.location.assign('signUp.php');</script>";
@@ -63,7 +63,7 @@ if (isset($_POST) && !empty($_POST)) {
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
-                                <span class="right"><a href="#">Forgot your password?</a></span>
+                                <span class="right"><a href="mailto: info@itph-academy.nl">Forgot your password?</a></span>
                                 <input id="signinPassword" type="password" name="password" maxlength="25" class="form-control">
                             </div>  
                             <div class="form-group" style="padding-top: 12px;">
@@ -74,7 +74,7 @@ if (isset($_POST) && !empty($_POST)) {
                             </div>
                             <p class="form-group"> <a href="signUp.php">Please sign Up</a></p>
 
-                            <p class="form-group">By signing in you are agreeing to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                            <p class="form-group">By signing in you are agreeing to our <a href="termsofservice.html">Terms of Use</a> and our <a href="PHP Developer Store.htm">Privacy Policy</a>.</p>
                         </form>
                     </div>
                 </div>

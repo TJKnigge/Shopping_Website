@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+require 'General.php';
+$conn = connectionDB();
+session_start();
+?>
 <html lang="en">
     <head>
         <title>PHP developer Store</title>
@@ -24,7 +28,12 @@
 
                         <li><a href="index.php" ><span class="glyphicon glyphicon-th-large"style="padding-top: 10px"></span> View Products</a></li>
                         <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"style="padding-top: 10px"></span> Login</a></li>
+                        <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-out" style="padding-top: 10px"></span> Logout</a></li> <?PHP } else {
+    ?> <li><a href="login.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Login</a></li><?php
+                        }
+                        ?>
+
+
                     </ul>
                 </div>
             </div>
@@ -73,16 +82,16 @@
             <div class="container" style="position: relative">
                 <ul>
                     <li><a href="index.php">PHP Developer Store</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a target="_blank" href="https://www.itph-academy.nl/">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
                     <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
                 <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
             </div>
             <div class="footer-social">
-                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://nl-nl.facebook.com/" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://www.google.nl/?gfe_rd=cr&dcr=0&ei=hzxfWrL-BtLc8AeUioCoDg&gws_rd=ssl" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a target="_blank" href="https://twitter.com/" class="social-icons"><i class="fa fa-twitter"></i></a>
             </div>
         </footer>
         <script src="slideshow.js"></script>

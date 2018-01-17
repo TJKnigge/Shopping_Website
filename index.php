@@ -96,7 +96,7 @@ function pre_r($array) {
                                         <?PHP echo $_SESSION['name']; ?> </span></a> </li>
                             <li><a href="seller.php"><span class="glyphicon glyphicon-barcode" style="padding-top: 10px"></span> Seller page</a></li>
                         <?PHP } ?>    
-                        <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Logout</a></li> <?PHP } else {
+                        <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-out" style="padding-top: 10px"></span> Logout</a></li> <?PHP } else {
                             ?> <li><a href="login.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Login</a></li><?php
                         }
                         ?>
@@ -202,17 +202,17 @@ function pre_r($array) {
         <footer id="myFooter">
             <div class="container">
                 <ul>
-                    <li><a href="mainpage.php">PHP Developer Store</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="index.php">PHP Developer Store</a></li>
+                    <li><a target="_blank" href="https://www.itph-academy.nl/">Contact us</a></li>
                     <li><a href="#">Our Products</a></li>
                     <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
-                <p class="footer-copyright">Â© 2018 Copyright is Reserved For PHP Developer Team </p>
+                <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
             </div>
             <div class="footer-social">
-                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
-                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
-                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+                <a target="_blank" href="https://nl-nl.facebook.com/" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a target="_blank" href="https://www.google.nl/?gfe_rd=cr&dcr=0&ei=hzxfWrL-BtLc8AeUioCoDg&gws_rd=ssl" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a target="_blank" href="https://twitter.com/" class="social-icons"><i class="fa fa-twitter"></i></a>
             </div>
         </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
