@@ -27,12 +27,14 @@ session_start();
                     <ul class="nav navbar-nav navbar-right">
 
                         <li><a href="index.php" ><span class="glyphicon glyphicon-th-large"style="padding-top: 10px"></span> View Products</a></li>
-                        <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
+
                         <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-out" style="padding-top: 10px"></span> Logout</a></li> <?PHP } else {
-    ?> <li><a href="login.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Login</a></li><?php
+    ?> <li><a href="signUp.php" ><span class="glyphicon glyphicon-user"style="padding-top: 10px"></span> Sign Up</a></li>
+                            <li><a href="login.php"><span class="glyphicon glyphicon-log-in" style="padding-top: 10px"></span> Login</a></li>
+
+                            <?php
                         }
                         ?>
-
 
                     </ul>
                 </div>
