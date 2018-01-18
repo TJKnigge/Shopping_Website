@@ -5,17 +5,11 @@
         <group>
             <file>file:/C:/xampp/htdocs/Shopping_Website/logout.php</file>
             <file>file:/C:/xampp/htdocs/Shopping_Website/signUp.php</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/index.php</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/Footer.css</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/mainpage.php</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/cart.css</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/Payment.html</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/General.php</file>
             <file>file:/C:/xampp/htdocs/Shopping_Website/login.php</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/termsofservice.html</file>
+            <file>file:/C:/xampp/htdocs/Shopping_Website/General.php</file>
+            <file>file:/C:/xampp/htdocs/Shopping_Website/index.php</file>
             <file>file:/C:/xampp/htdocs/Shopping_Website/seller.php</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/logincss.css</file>
-            <file>file:/C:/xampp/htdocs/Shopping_Website/slideshow.js</file>
+            <file>file:/C:/xampp/htdocs/Shopping_Website/mainpage.php</file>
         </group>
     </open-files>
 </project-private>

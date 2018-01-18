@@ -22,7 +22,7 @@ if (isset($_POST) && !empty($_POST)) {
 //        $Myresult = mysqli_query($conn, $active);
 
         echo '<script type="text/javascript">alert(" Hi  ' . $username . '  Welcom back  ");</script>';
-        echo "<script>window.location.assign('mainpage.php');</script>";
+        echo "<script>window.location.assign('index.php');</script>";
     } else {
         echo '<script type="text/javascript">alert("Invalid Login please register for new account ");</script>';
         echo "<script>window.location.assign('signUp.php');</script>";

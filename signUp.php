@@ -78,35 +78,35 @@ if (isset($_POST) && !empty($_POST)) {
                             </div>
                             <div class="form-group">
                                 <strong>Name</strong>
-                                <input id="mynme" name="name" type="myname" maxlength="50" class="form-control" autocomplete="on"required>
+                                <input id="mynme" name="name" type="myname" maxlength="50" class="form-control" placeholder="First Name" autocomplete="off"required>
                             </div>
                             <div class="form-group">
                                 <strong>Surname</strong>
-                                <input id="surnme" name="surname" type="sname" maxlength="50" class="form-control" autocomplete="on"required>
+                                <input id="surnme" name="surname" type="sname" maxlength="50" class="form-control" placeholder="Last Name" autocomplete="off"required>
                             </div>
                             <div class="form-group">
                                 <strong>Street Name</strong>
-                                <input id="strtnm" name="streetname" type="strname" maxlength="50" class="form-control" autocomplete="on">
+                                <input id="strtnm" name="streetname" type="strname" maxlength="50" class="form-control" placeholder="ex: Stationstraat" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <strong>House Number</strong>
-                                <input id="hnmbr" name="housenumber" type="hnumber" maxlength="50" class="form-control" autocomplete="on">
+                                <input id="hnmbr" name="housenumber" type="hnumber" maxlength="50" class="form-control" placeholder="ex: 10" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <strong>Zipcode</strong>
-                                <input id="zipc" name="zipcode" type="zip" maxlength="50" class="form-control" autocomplete="on">
+                                <input id="zipc" name="zipcode" type="zip" maxlength="50" class="form-control" placeholder="ex: 1234 DC" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <strong>City</strong>
-                                <input id="cty" name="city" type="cti" maxlength="50" class="form-control" autocomplete="on">
+                                <input id="cty" name="city" type="cti" maxlength="50" class="form-control" placeholder="ex: Zwolle" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <strong>Email Adress</strong>
-                                <input id="emailadress" name="email" type="email" maxlength="50" class="form-control" autocomplete="on"required>
+                                <input id="emailadress" name="email" type="email" maxlength="50" class="form-control"placeholder="example@example.com" autocomplete="off" required>
                             </div>
                             <div class="form-group">
                                 <strong>Password</strong>
-                                <input id="passwrd" name="password" type="password" maxlength="50" class="form-control" autocomplete="on"required>
+                                <input id="passwrd" name="password" type="password" maxlength="50" class="form-control" placeholder="complex password" autocomplete="off" required>
                             </div>
                             <div class="form-group" style="padding-top: 12px;">
                                 <button id="submit" type="submit" class="btn btn-success btn-block">Sign up</button>
