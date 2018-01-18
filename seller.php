@@ -84,9 +84,9 @@ if (isset($_POST['name']) &&
         <footer id="myFooter">
             <div class="container">
                  <ul>
-                    <li><a href="index.php">PHP Developer Store</a></li>
+                     <li><a href="mainpage.php">PHP Developer Store</a></li>
                     <li><a target="_blank" href="https://www.itph-academy.nl/">Contact us</a></li>
-                    <li><a href="#">Our Products</a></li>
+                    <li><a href="index.php">Our Products</a></li>
                     <li><a href="termsofservice.html">Terms of service</a></li>
                 </ul>
                 <p class="footer-copyright">© 2018 Copyright is Reserved For PHP Developer Team </p>
