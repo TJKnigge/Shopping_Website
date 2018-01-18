@@ -101,7 +101,7 @@ if (isset($_POST) && !empty($_POST)) {
                                 <input id="cty" name="city" type="cti" maxlength="50" class="form-control" placeholder="ex: Zwolle" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <strong>Email Adress</strong>
+                                <strong>Email Address</strong>
                                 <input id="emailadress" name="email" type="email" maxlength="50" class="form-control"placeholder="example@example.com" autocomplete="off" required>
                             </div>
                             <div class="form-group">
