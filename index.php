@@ -58,22 +58,6 @@ function pre_r($array) {
     print-r($array);
     echo'</pre>';
 }
-
-//function check() {
-//    $query1 = "SELECT `active` FROM `users`";
-//    
-//    $conn = connectionDB();
-//    $result_online = mysqli_query($conn, $query1);
-//    
-//    $Array = mysqli_fetch_array($result_online);
-//    if ($Array['active'] != 1){
-//        
-//        echo "you need to login first";
-//        header('location : login.php'); 
-//    }
-//        
-//}
-//
 ?>
 <!DOCTYPE html>
 <html>
@@ -121,7 +105,7 @@ function pre_r($array) {
                                 <div class="products">
                                     <img src="<?php echo $product['image']; ?>" class="img-responsive" />
                                     <h4 class="text-info"><?php echo $product['name']; ?></h4>
-                                    <h4>$ <?php echo $product['price']; ?></h4>
+                                    <h4>€ <?php echo $product['price']; ?></h4>
 
                                     <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
                                     <input type="hidden" name="price" value="<?php echo $product['price']; ?>" />
@@ -184,7 +168,7 @@ function pre_r($array) {
                         ?>  
                         <tr>  
                             <td colspan="3" align="right">Total</td>  
-                            <td align="right">$ <?php echo number_format($total, 2); ?></td>  
+                            <td align="right">€ <?php echo number_format($total, 2); ?></td>  
                             <td></td>  
                         </tr>  
                         <tr>
