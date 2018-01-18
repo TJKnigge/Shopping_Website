@@ -81,7 +81,7 @@ function pre_r($array) {
                             <li><a href="seller.php"><span class="glyphicon glyphicon-barcode" style="padding-top: 10px"></span> Seller page</a></li>
                         <?PHP } ?>    
                         <li><?php if (isset($_SESSION['name'])) { ?><li><a href="logout.php"><span class="glyphicon glyphicon-log-out" style="padding-top: 10px"></span> Logout</a></li> 
-                            <select class="glyphicon glyphicon-log-in" style="padding-top: 10px"> Serach
+                            <select class="glyphicon glyphicon-log-in" style="padding-top: 5px; margin-top: 10px"> Serach
                                 <option> Computers </option>
                                 <option> Laptops</option>
                                 <option> Cameras</option>
